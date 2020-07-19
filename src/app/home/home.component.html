@@ -1,0 +1,11 @@
+<div class="bottom-5px">
+    <img class="height-660px" src="http://localhost:8080/10384d22887afd088eefc97f58a19fa0.jpg" alt="background image">
+    <h1 class="centered">Find your Dream HOME</h1>
+</div>
+<div *ngIf="data">
+    <span *ngFor="let obj of data" class="bottom-5px layout-display" (click)="routeToPage(obj)">
+        <div class="bottom-5px">{{obj.pageTitle}}</div>
+        <img class="bottom-5px" src={{obj.imageUrl}} alt="building image">
+        <div class="line-height" [innerHtml]="obj.htmlContent"></div>
+    </span>
+</div>

@@ -1,0 +1,5 @@
+<div *ngIf="imageData">
+    <div class="bottom-5px">{{imageData.pageTitle}}</div>
+    <img class="bottom-5px" src={{imageData.imageUrl}} alt="building image">
+    <div [innerHtml]=htmlData></div>
+</div>
