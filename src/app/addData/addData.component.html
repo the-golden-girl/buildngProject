@@ -1,0 +1,35 @@
+<h2>Enter below required fields : </h2>
+
+<form id="dataForm" method="POST" class="bottom-5px" [formGroup]="dataForm" enctype="multipart/form-data" (ngSubmit)="submitForm()">
+    <div class="form-group bottom-5px">
+        <div class="bottom-5px">
+            <strong><label for="pageTitle">Enter Page Title : </label></strong>
+            <input type="text" id="pageTitle" name="pageTitle" formControlName="pageTitle" required>    
+        </div>
+        <div class="bottom-5px">
+            <strong><label for="file">Upload Image : </label></strong>
+            <input type="file" #file id="file" name="file" formControlName="imageUrl">
+            <button type="button" (click)="uploadImage()">Upload Image</button>
+        </div>
+        <div class="bottom-5px">
+            <strong><label for="pageTitle">Enter Page Short Description : </label></strong>
+            <ejs-richtexteditor id='pageShortDescription' formControlName='pageShortDescription' 
+                [toolbarSettings]='tools' [height]="300" [width]="800"
+                style="margin-top: 5px; margin-bottom: 10px;">
+            </ejs-richtexteditor>
+        </div>
+        <div class="bottom-5px">
+            <strong><label for="pageTitle">Enter Page Long Description : </label></strong>
+            <ejs-richtexteditor id='pageLongDescription' formControlName='pageLongDescription' 
+                [toolbarSettings]='tools' [height]="300" [width]="800"
+                style="margin-top: 5px; margin-bottom: 10px;">
+            </ejs-richtexteditor>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+    <!-- <button type="button" class="bottom-5px" (click)="routeToHome()">Go Back to Home</button> -->
+
+</form>
+<div>
+    <p-dialog [(visible)]="display" [style]="{'width': '500px', 'text-align': 'center'}">Data added successfully.</p-dialog>
+</div>

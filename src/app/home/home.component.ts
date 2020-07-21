@@ -20,8 +20,15 @@ export class HomeComponent implements OnInit {
   }
 
   getData() {
-    this.http.get('./assets/json/mock_data.json').subscribe(response => {
-      this.data = response;
+    // this.http.get('./assets/json/mock_data.json').subscribe(response => {
+    //   this.data = response;
+    // });
+
+    this.sharedService.getData().subscribe((response) => {
+      console.log('response from get api call is : '+JSON.stringify(response));
+      if (response) {
+        this.data = response;
+      }
     });
   }
 
@@ -29,5 +36,9 @@ export class HomeComponent implements OnInit {
     this.sharedService.nextMessage(imageData);
     this.route.navigateByUrl('/page');
   }
+
+  // routeToAddData() {
+  //   this.route.navigateByUrl('/addData');
+  // }
 
 }
